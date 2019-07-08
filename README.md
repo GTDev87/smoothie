@@ -31,22 +31,19 @@ curl -L https://github.com/kubernetes/kompose/releases/download/v1.1.0/kompose-d
 brew update && brew install kubectl && brew cask install docker minikube virtualbox
 ```
 
-### setup db
+### setup db local
 
 ```
-psql -d postgres
-create database assessment_api_dev;
-create user postgres with encrypted password 'postgres';
-grant all privileges on database postgres to postgres;
+psql -U gt -d postgres # use your superuser mine is gt
 
-create database provider_api;
-create user postgres with encrypted password 'postgres';
-grant all privileges on database postgres to postgres;
+postgres=# alter user postgres superuser;
+postgres=# exit
+mix ecto.create
 
 # exit
 
 mix ecto.migrate --all
-mix run apps/assessment_api/priv/repo/seeds.exs
+mix run apps/smoothie_api/priv/repo/seeds.exs
 
 ```
 

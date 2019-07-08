@@ -24,11 +24,13 @@ config :logger, :console, format: "[$level] $message\n", compile_time_purge_leve
 config :phoenix, :stacktrace_depth, 20
 
 username = System.get_env("DB_USERNAME_DEV") || "postgres"
-password = System.get_env("DB_PASSWORD_DEV") || "postgres"
-database = System.get_env("DB_PROVIDER_NAME_DEV") || "provider_api"
+password = System.get_env("DB_PASSWORD_DEV") || ""
+database = System.get_env("DB_PROVIDER_NAME_DEV") || "provider_smoothie_api"
 hostname = System.get_env("DB_HOSTNAME_DEV") || "localhost"
 
 url = System.get_env("PROVIDER_DB_URL") || "ecto://#{username}:#{password}@#{hostname}/#{database}"
+
+IO.puts("url = #{url}")
 
 ssl = !!System.get_env("PROVIDER_DB_URL")
 

@@ -14,7 +14,7 @@ services:
   #   environment:
   #     DB_PASS: postgres
   #     DB_USER: postgres
-  #     DB_NAME: provider_api,assessment_api_dev
+  #     DB_NAME: provider_api,smoothie_api_dev
 
   api:
     image: gtdev87/tiro-api

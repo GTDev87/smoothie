@@ -17,12 +17,12 @@ def project do
       "ecto.setup": [
         "ecto.create",
         "ecto.migrate",
-        "run apps/assessment_api/priv/repo/seeds.exs",
+        "run apps/smoothie_api/priv/repo/seeds.exs",
         "run apps/provider_api/priv/repo/seeds.exs",
       ],
       "ecto.migrate_seed": [
         "ecto.migrate",
-        "run apps/assessment_api/priv/repo/seeds.exs",
+        "run apps/smoothie_api/priv/repo/seeds.exs",
         "run apps/provider_api/priv/repo/seeds.exs",
       ],
       # "ecto.reset": ["ecto.drop", "ecto.setup"],

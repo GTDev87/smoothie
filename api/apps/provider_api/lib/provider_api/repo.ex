@@ -8,12 +8,12 @@ defmodule ProviderApi.Repo do
 
     new_config =
       config 
-      |> Keyword.put(:username, Keyword.get(options, :username))
-      |> Keyword.put(:password, Keyword.get(options, :password))
-      |> Keyword.put(:hostname, Keyword.get(options, :host))
-      |> Keyword.put(:database, Keyword.get(options, :database))
+      |> Keyword.put(:username, Keyword.get(options, :username, ""))
+      |> Keyword.put(:password, Keyword.get(options, :password, ""))
+      |> Keyword.put(:hostname, Keyword.get(options, :host, ""))
+      |> Keyword.put(:database, Keyword.get(options, :database, ""))
       |> Keyword.delete(:url)
-    
+
     {:ok, new_config}
   end
 end

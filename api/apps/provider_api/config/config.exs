@@ -51,7 +51,7 @@ config :ueberauth, Ueberauth.Strategy.Google.OAuth,
 config :provider_api, ProviderApi.Guardian,
   allowed_algos: ["HS512"], # optional
   verify_module: Guardian.JWT,  # optional
-  issuer: "tiro_api",
+  issuer: "smoothie_api",
   ttl: { 30, :days },
   allowed_drift: 2000,
   verify_issuer: true, # optional
