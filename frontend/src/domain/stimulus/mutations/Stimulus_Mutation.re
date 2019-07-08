@@ -1,1 +1,0 @@
-module UpdateStimulus = UpdateStimulus;

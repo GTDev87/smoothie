@@ -7,22 +7,18 @@ let make = (~user: User.Model.Record.t, _children) => {
   render: _self =>
     <div style=fullSizeStyle>
       {
-        switch (user.data.teacherId) {
+        switch (user.data.profileId) {
         | None => <AccountTypeLayout />
-        | Some(teacherId) =>
-          <Teacher.Container id={Teacher.Model.getUUIDFromId(teacherId)}>
+        | Some(profileId) =>
+          <Profile.Container id={Profile.Model.getUUIDFromId(profileId)}>
             ...((teacher) => {
-              <NormalizrInit records=[Teacher.Record.Record(teacher)]>
+              <NormalizrInit records=[Profile.Record.Record(teacher)]>
                 ...{(~normalized, ~updateNormalizr) =>
-                  <TeacherLayout
-                    teacherId={Schema.Teacher.stringToId(teacher.data.id)}
-                    normalized
-                    updateNormalizr
-                  />
+                  <ProfileLayout  />
                 }
               </NormalizrInit>
             })
-          </Teacher.Container>
+          </Profile.Container>
         }
       }
     </div>,

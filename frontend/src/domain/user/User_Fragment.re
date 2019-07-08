@@ -3,9 +3,8 @@ module GraphFragment = [%graphql
     fragment userFields on User {
       id
       email
-      teacherId
-      teacher {
-        ...Teacher.Model.Fragment.Fields
+      profile {
+        ...Profile.Model.Fragment.Fields
       }
     }
   |}

@@ -79,13 +79,6 @@ let make = /*~title, ~initialUrl, ~server : bool, */ _children => {
     <ReasonApollo.Provider client=Client.instance>
       {
         switch (state.ids) {
-        | {
-            classroomId: Some(classroomId),
-            testId: Some(testId),
-            studentId: Some(studentId),
-          } =>
-          <Page.StudentTest.StudentTestLayout classroomId testId studentId />
-        | {testId: Some(testId)} => <Page.Test.TestLayout testId />
         | _ => <MemberLayout />
         }
       }

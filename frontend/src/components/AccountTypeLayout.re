@@ -32,9 +32,9 @@ let make = _children => {
   ...component,
   render: _self =>
     <LoginBackground style=backgroundStyle>
-      <User.Mutation.CreateTeacher id={UUID.generateUUID()}>
+      /* <User.Mutation.CreateProfile id={UUID.generateUUID()}>
         ...{
-             (~createTeacher) =>
+             (~createProfile) =>
                <div>
                  <div style=textStyle>
                    {
@@ -48,9 +48,9 @@ let make = _children => {
                      theme=CTA
                      autoFocus=false
                      onClick={
-                       _ => ApolloType.runApollo(createTeacher) |> ignore
+                       _ => ApolloType.runApollo(createProfile) |> ignore
                      }>
-                     {ReasonReact.string("Teacher")}
+                     {ReasonReact.string("Profile")}
                    </Button>
                    <Button
                      theme=CTA
@@ -62,6 +62,6 @@ let make = _children => {
                  </div>
                </div>
            }
-      </User.Mutation.CreateTeacher>
+      </User.Mutation.CreateProfile> */
     </LoginBackground>,
 };
