@@ -1,4 +1,4 @@
-let localStorageNamespace = "tiro.app.auth";
+let localStorageNamespace = "smoothie.app.auth";
 
 let saveAuth = () =>
   switch (Document.getHash()) {

@@ -1,3 +1,60 @@
+# For Dev (mac instructions)
+
+## Install Postgres
+```
+brew install postgres
+```
+## Install Elixir
+```
+brew install elixir
+```
+## Install Node
+https://nodejs.org/en/download/
+## Intall Yarn
+```
+brew install yarn
+```
+## Install Reason React
+```
+yarn add --global bs-platform
+```
+
+## set up env from secret 
+```
+# find greg
+source dev-secret-config.env
+```
+
+## setup db local
+
+```
+psql -U gt -d postgres # use your superuser mine is gt
+
+postgres=# alter user postgres superuser;
+postgres=# exit
+mix ecto.create
+
+# exit
+
+mix ecto.migrate --all
+mix run apps/smoothie_api/priv/repo/seeds.exs
+```
+
+## Run app
+
+```
+# backend in /api
+mix deps.get
+iex -S mix phx.server 
+
+# frontend in /frontend
+yarn install
+yarn local-introspection
+yarn start
+
+```
+
+# For Prod... ugh
 ## set
 GOOGLE_CLIENT_ID
 GOOGLE_CLIENT_SECRET
@@ -29,22 +86,6 @@ OSX
 ```
 curl -L https://github.com/kubernetes/kompose/releases/download/v1.1.0/kompose-darwin-amd64 -o kompose
 brew update && brew install kubectl && brew cask install docker minikube virtualbox
-```
-
-### setup db local
-
-```
-psql -U gt -d postgres # use your superuser mine is gt
-
-postgres=# alter user postgres superuser;
-postgres=# exit
-mix ecto.create
-
-# exit
-
-mix ecto.migrate --all
-mix run apps/smoothie_api/priv/repo/seeds.exs
-
 ```
 
 ### verify

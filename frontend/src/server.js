@@ -43,7 +43,7 @@ server
     // console.log("assets.client.css = %j", assets.client.css);
     // console.log("req.url = %j", req.url);
 
-    const markup = renderToString(<App title="Tiro powered by Real and Open" initialUrl={req.url} server={true} />);
+    const markup = renderToString(<App title="Smoothie" initialUrl={req.url} server={true} />);
     res.send(
       `<!doctype html>
     <html lang="">

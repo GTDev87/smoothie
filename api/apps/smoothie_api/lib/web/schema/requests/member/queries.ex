@@ -8,7 +8,6 @@ defmodule SmoothieApi.Web.Schema.Member.Queries do
 
   
   def get_member(_args, info) do
-    # {:ok, info.context.current_user.id}
-    {:ok, "1"}
+    {:ok, info.context.current_user.id}
   end
 end
