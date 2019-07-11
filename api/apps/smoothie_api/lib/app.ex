@@ -9,10 +9,11 @@ defmodule SmoothieApi do
     # Define workers and child supervisors to be supervised
     children = [
       # Start the Ecto repository
-      supervisor(SmoothieApi.Web.Repo, []),
-      supervisor(SmoothieApi.Web.WriteRepo, []),
+      SmoothieApi.Web.Repo,
+      SmoothieApi.Web.WriteRepo,
       # Start the endpoint when the application starts
-      supervisor(SmoothieApi.Web.Endpoint, []),
+      SmoothieApi.Web.Endpoint,
+      # worker(SmoothieApi.Web.Schema.Domain.User.Events.UserCreated.Projection, [], id: :user_aggregate_projector),
       # Start your own worker by calling: SmoothieApi.Web.Worker.start_link(arg1, arg2, arg3)
       # worker(SmoothieApi.Web.Worker, [arg1, arg2, arg3]),
     ]

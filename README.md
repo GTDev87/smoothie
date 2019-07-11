@@ -36,6 +36,7 @@ mix ecto.create
 
 # exit
 
+mix do event_store.create, event_store.init # need to add to remote setup
 mix ecto.migrate --all
 mix run apps/smoothie_api/priv/repo/seeds.exs
 ```

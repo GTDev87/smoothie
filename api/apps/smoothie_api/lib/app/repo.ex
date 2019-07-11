@@ -1,5 +1,5 @@
 defmodule SmoothieApi.Web.Repo do
-  use Ecto.Repo, otp_app: :smoothie_api
+  use Ecto.Repo, otp_app: :smoothie_api, adapter: Ecto.Adapters.Postgres
   require Logger
   def init(_type, config) do
     url = Keyword.get(config, :url)
@@ -19,7 +19,7 @@ defmodule SmoothieApi.Web.Repo do
 end
 
 defmodule SmoothieApi.Web.WriteRepo do
-  use Ecto.Repo, otp_app: :smoothie_api
+  use Ecto.Repo, otp_app: :smoothie_api, adapter: Ecto.Adapters.Postgres
   require Logger
   def init(_type, config) do
     url = Keyword.get(config, :url)

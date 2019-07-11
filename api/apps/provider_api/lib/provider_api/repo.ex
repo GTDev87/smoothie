@@ -1,6 +1,6 @@
 defmodule ProviderApi.Repo do
 
-  use Ecto.Repo, otp_app: :provider_api
+  use Ecto.Repo, otp_app: :provider_api, adapter: Ecto.Adapters.Postgres
   def init(_type, config) do
     url = Keyword.get(config, :url)
 

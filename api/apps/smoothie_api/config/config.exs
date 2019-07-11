@@ -9,6 +9,13 @@ use Mix.Config
 config :smoothie_api,
   ecto_repos: [SmoothieApi.Web.Repo, SmoothieApi.Web.WriteRepo]
 
+
+config :commanded,
+  event_store_adapter: Commanded.EventStore.Adapters.EventStore
+
+config :commanded_ecto_projections,
+  repo: SmoothieApi.Web.WriteRepo
+
 # Configures the endpoint
 config :smoothie_api, SmoothieApi.Web.Endpoint,
   url: [host: "localhost"],

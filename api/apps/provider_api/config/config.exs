@@ -22,8 +22,7 @@ config :logger, :console,
   metadata: [:request_id]
 
 # Change the json response type to json-api
-config :phoenix, :format_encoders,
-  "json-api": Poison
+config :phoenix, :json_library, Jason
 
 config :plug, :types, %{
   "application/vnd.api+json" => ["json-api"]

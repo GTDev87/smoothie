@@ -53,10 +53,10 @@ defmodule ProviderApi.Mixfile do
     [
       {:phoenix, "~> 1.4.0"},
       {:phoenix_pubsub, "~> 1.1"},
-      {:phoenix_ecto, "~> 3.2.3"},
-      {:postgrex, "~> 0.13.3"},
+      {:phoenix_ecto, "~> 4.0"},
+      {:plug_cowboy, "~> 2.0"},
+      {:postgrex, "~> 0.14.3"},
       {:gettext, "~> 0.13.1"},
-      {:cowboy, "~> 1.1.2"},
       {:cors_plug, "~> 1.3"},
       {:excoveralls, "~> 0.7.2", only: :test},
       # TODO remove when hooks are disossaciated

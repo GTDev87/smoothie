@@ -10,7 +10,7 @@ defmodule SmoothieApi.Mixfile do
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod,
-      # aliases: aliases(),
+      aliases: aliases(),
       deps: deps()
     ]
   end
@@ -21,7 +21,10 @@ defmodule SmoothieApi.Mixfile do
   def application do
     [
       mod: {SmoothieApi, []},
-      extra_applications: [:logger]
+      extra_applications: [
+        :logger,
+        :eventstore
+      ]
     ]
   end
 
@@ -36,17 +39,16 @@ defmodule SmoothieApi.Mixfile do
     [
       {:phoenix, "~> 1.4.0"},
       {:phoenix_pubsub, "~> 1.1"},
-      {:phoenix_ecto, "~> 3.2.3"},
-      {:postgrex, "~> 0.13.3"},
-      {:phoenix_html, "~> 2.6"},
-      {:phoenix_live_reload, "~> 1.0", only: :dev},
+      {:phoenix_ecto, "~>4.0"},
+      {:postgrex, "~> 0.14.3"},
+      {:phoenix_html, "~> 2.11"},
+      {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:gettext, "~> 0.13.1"},
-      {:cowboy, "~> 1.1.2"},
       {:absinthe, "~> 1.4.14"},
       {:absinthe_plug, "~> 1.4"},
       {:poison, "~> 3.0"},
       {:plug, "~> 1.7.1"},
-      {:plug_cowboy, "~> 1.0"},
+      {:plug_cowboy, "~> 2.0"},
       {:absinthe_ecto, "~> 0.1"},
       {:cors_plug, "~> 1.3"},
       {:faker, "~> 0.8"},
@@ -56,8 +58,12 @@ defmodule SmoothieApi.Mixfile do
       {:dataloader, "~> 1.0.6"},
       {:statistics, "~> 0.5.0"},
       {:matrix, "~> 0.3.0"},
-      {:jason, "~> 1.0"},
-      {:database_url, "~> 0.1"}
+      {:jason, "~> 1.1"},
+      {:database_url, "~> 0.1"},
+      {:commanded, "~> 0.19"},
+      {:commanded_ecto_projections, "~> 0.8"},
+      {:commanded_eventstore_adapter, "~> 0.6"},
+      {:exconstructor, "~> 1.1"}
     ]
   end
 
@@ -67,11 +73,11 @@ defmodule SmoothieApi.Mixfile do
   #     $ mix ecto.setup
   #
   # See the documentation for `Mix` for more info on aliases.
-  # defp aliases do
-  #   [
-  #     # "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
-  #     "ecto.reset": ["ecto.drop", "ecto.setup"],
-  #     test: ["ecto.create --quiet", "ecto.migrate", "test"]
-  #   ]
-  # end
+  defp aliases do
+    [
+      # "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
+      "ecto.reset": ["ecto.drop", "ecto.setup"],
+      test: ["ecto.create --quiet", "ecto.migrate", "test"]
+    ]
+  end
 end
