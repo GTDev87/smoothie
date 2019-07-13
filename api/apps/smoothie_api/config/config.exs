@@ -14,7 +14,7 @@ config :commanded,
   event_store_adapter: Commanded.EventStore.Adapters.EventStore
 
 config :commanded_ecto_projections,
-  repo: SmoothieApi.Web.WriteRepo
+  repo: SmoothieApi.Web.Repo
 
 # Configures the endpoint
 config :smoothie_api, SmoothieApi.Web.Endpoint,

@@ -2,6 +2,8 @@ defmodule SmoothieApi.Web.Schema.Domain.User.Mutations.CreateUser.GraphQL do
   use Absinthe.Schema.Notation
   use SmoothieApi.Web.Lib.AbsintheInputUtils
 
+  alias SmoothieApi.Web.Schema.Domain.User.Mutations.CreateUser
+
   def_absinthe_input UserInput do
     field(:id, non_null(:id))
     field(:email, non_null(:string))
@@ -21,11 +23,11 @@ defmodule SmoothieApi.Web.Schema.Domain.User.Mutations.CreateUser.GraphQL do
 
     args
     |> CreateUser.Command.new()
-    |> CreateUser.Command.assign_uuid(uuid)
-    |> App.Router.dispatch(include_aggregate_version: true, consistency: :strong)
+    |> CreateUser.Command.update(args.user)
+    |> SmoothieApi.Web.Schema.Router.dispatch(include_aggregate_version: true, consistency: :strong)
     |> case do
-      {:ok, version} -> uuid
-      :ok -> uuid
+      {:ok, version} -> {:ok, uuid}
+      :ok -> {:ok, uuid}
       reply -> reply
     end
   end

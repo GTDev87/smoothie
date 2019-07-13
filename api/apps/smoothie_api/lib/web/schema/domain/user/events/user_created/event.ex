@@ -1,5 +1,5 @@
 defmodule SmoothieApi.Web.Schema.Domain.User.Events.UserCreated.Event do
-    @derive [Poison.Encoder]
+    @derive Jason.Encoder
     defstruct [
         id: "",
         email: "",

@@ -37,7 +37,8 @@ defmodule ProviderApi.Mixfile do
         :postgrex,
         :ueberauth,
         :oauth,
-        :ueberauth_google
+        :ueberauth_google,
+        :ecto_sql
       ]
     ]
   end
@@ -65,7 +66,7 @@ defmodule ProviderApi.Mixfile do
       {:ueberauth, "~> 0.5.0"},
       {:ueberauth_google, "~> 0.7"},
       {:ja_serializer, "~> 0.12.0"},
-      {:guardian, "~> 1.1.1"},
+      {:guardian, "~> 1.2.1"},
       {:database_url, "~> 0.1"}
     ]
   end

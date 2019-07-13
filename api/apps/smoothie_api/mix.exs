@@ -5,7 +5,7 @@ defmodule SmoothieApi.Mixfile do
     [
       app: :smoothie_api,
       version: "0.0.1",
-      elixir: "~> 1.6.6",
+      elixir: "~> 1.9.0",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       build_embedded: Mix.env() == :prod,
@@ -23,7 +23,8 @@ defmodule SmoothieApi.Mixfile do
       mod: {SmoothieApi, []},
       extra_applications: [
         :logger,
-        :eventstore
+        :eventstore,
+        :ecto_sql
       ]
     ]
   end
@@ -52,7 +53,8 @@ defmodule SmoothieApi.Mixfile do
       {:absinthe_ecto, "~> 0.1"},
       {:cors_plug, "~> 1.3"},
       {:faker, "~> 0.8"},
-      {:guardian, "~> 1.1.1"},
+      {:guardian, "~> 1.2.1"},
+      {:eventstore, "~> 0.17"},
       {:elixir_uuid, "~> 1.2"},
       {:dialyxir, "~> 1.0.0-rc.3", only: [:dev], runtime: false},
       {:dataloader, "~> 1.0.6"},

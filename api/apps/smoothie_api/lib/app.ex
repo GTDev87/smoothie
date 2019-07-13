@@ -16,6 +16,7 @@ defmodule SmoothieApi do
       # worker(SmoothieApi.Web.Schema.Domain.User.Events.UserCreated.Projection, [], id: :user_aggregate_projector),
       # Start your own worker by calling: SmoothieApi.Web.Worker.start_link(arg1, arg2, arg3)
       # worker(SmoothieApi.Web.Worker, [arg1, arg2, arg3]),
+      supervisor(SmoothieApi.Web.Schema.Domain.User.Supervisor, []),
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html

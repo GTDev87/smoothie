@@ -8,10 +8,7 @@ defmodule SmoothieApi.Web.Schema.Domain.User.Mutations.CreateUser.Command do
 
   alias SmoothieApi.Web.Schema.Domain.User.Mutations.CreateUser.Command
 
-  def update(
-    %Command{} = create_post,
-    user
-  ) do
+  def update(%Command{} = create_post, user) do
     %Command{create_post | id: user.id, email: user.email}
   end
 end
