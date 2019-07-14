@@ -9,11 +9,6 @@ defmodule SmoothieApi.Web.Schema.Domain.User.Projector do
   }
 
   project(%UserCreated.Event{} = event, fn multi ->
-    require Logger
-    
-    res = UserCreated.Projection.execute(multi, event)
-    Logger.debug("res = #{inspect res}")
-    res
+    UserCreated.Projection.execute(multi, event)
   end)
-
 end

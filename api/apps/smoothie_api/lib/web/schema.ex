@@ -21,6 +21,10 @@ defmodule SmoothieApi.Web.Schema do
     import_fields(:provider_mutation)
   end
 
+  subscription do
+    
+  end
+
   def plugins do
     [Absinthe.Middleware.Dataloader | Absinthe.Plugin.defaults()]
   end

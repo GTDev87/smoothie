@@ -15,6 +15,7 @@ defmodule SmoothieApi.Web.Router do
       schema: SmoothieApi.Web.Schema
 
     forward "/graphiql", Absinthe.Plug.GraphiQL,
-      schema: SmoothieApi.Web.Schema
+      schema: SmoothieApi.Web.Schema,
+      socket: SmoothieApi.Web.UserSocket
   end
 end

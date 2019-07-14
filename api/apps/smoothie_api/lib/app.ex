@@ -13,6 +13,7 @@ defmodule SmoothieApi do
       SmoothieApi.Web.WriteRepo,
       # Start the endpoint when the application starts
       SmoothieApi.Web.Endpoint,
+      {Absinthe.Subscription, [SmoothieApi.Web.Endpoint]},
       # worker(SmoothieApi.Web.Schema.Domain.User.Events.UserCreated.Projection, [], id: :user_aggregate_projector),
       # Start your own worker by calling: SmoothieApi.Web.Worker.start_link(arg1, arg2, arg3)
       # worker(SmoothieApi.Web.Worker, [arg1, arg2, arg3]),
