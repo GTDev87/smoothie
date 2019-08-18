@@ -22,7 +22,11 @@ defmodule SmoothieApi.Web.Schema do
   end
 
   subscription do
-    
+    field :user, :user do
+      config fn _args, _info ->
+        {:ok, user: "*"}
+      end
+    end
   end
 
   def plugins do

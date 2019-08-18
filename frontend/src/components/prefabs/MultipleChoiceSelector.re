@@ -43,7 +43,7 @@ let make =
              <div key={selection.id} className=cx(rowClass, selectionClass(selection.id))>
               <div>
                <input
-                 _type="radio"
+                 type_="radio"
                  className=radioInputClass
                  value="option1"
                  id={selection.text}

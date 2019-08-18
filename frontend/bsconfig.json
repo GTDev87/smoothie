@@ -15,6 +15,7 @@
   },
   "bs-dependencies": [
     "reason-react",
+    "reason-apollo-hooks",
     "reason-apollo",
     "@glennsl/bs-json",
     "re-debouncer"

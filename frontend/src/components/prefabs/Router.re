@@ -35,11 +35,11 @@ let make:
       switch action {
       | UpdateRoute(url) => ReasonReact.Update(url)
       },
-    subscriptions: ({send}) => [
-      Sub(
-        () => ReasonReact.Router.watchUrl(url => send(UpdateRoute(url))),
-        ReasonReact.Router.unwatchUrl
-      )
-    ],
+    didMount: ({send, onUnmount, handle}) => {
+      let urlWatcherId =
+        ReasonReact.Router.watchUrl(url => send(UpdateRoute(url)));
+      onUnmount(() => ReasonReact.Router.unwatchUrl(urlWatcherId));
+      /* handle(getUser, ()); */
+    },
     render: ({state}) => children(state)
   };

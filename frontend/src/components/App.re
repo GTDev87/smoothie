@@ -76,13 +76,13 @@ let make = /*~title, ~initialUrl, ~server : bool, */ _children => {
     self.onUnmount(() => ReasonReact.Router.unwatchUrl(watcherID));
   },
   render: ({state}) =>
-    <ReasonApollo.Provider client=Client.instance>
+    <ReasonApolloProviderLocal.Jsx2 client=Client.instance>
       {
         switch (state.ids) {
         | _ => <MemberLayout />
         }
       }
-    </ReasonApollo.Provider>,
+    </ReasonApolloProviderLocal.Jsx2>,
 };
 
 let default =

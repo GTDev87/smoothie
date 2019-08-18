@@ -5,7 +5,7 @@ let make = (~value, ~onToggle, ~id=?, _children) => {
   render: _self =>
     <input
       id={Belt.Option.getWithDefault(id, "")}
-      _type="checkbox"
+      type_="checkbox"
       checked=value
       onChange={_e => onToggle() |> ignore}
     />,
